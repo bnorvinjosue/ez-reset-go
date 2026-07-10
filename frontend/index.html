@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ez-reset</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">ez</div>
+          <div>
+            <h1>ez-reset</h1>
+            <p class="subtitle">Epson waste ink counter reset utility</p>
+          </div>
+        </div>
+        <div id="platformBadge" class="badge">loading…</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel printers-panel">
+          <div class="panel-head">
+            <h2>Printers</h2>
+            <button id="refreshBtn" class="btn ghost" title="Refresh list">⟳</button>
+          </div>
+          <div id="printerList" class="printer-list">
+            <div class="empty">Click refresh to scan for USB printers.</div>
+          </div>
+          <div class="panel-head" style="margin-top: 18px">
+            <h2>Supported models</h2>
+          </div>
+          <select id="modelSelect" class="model-select" size="6"></select>
+        </section>
+
+        <section class="panel detail-panel">
+          <div id="detailEmpty" class="empty big">
+            <div class="empty-icon">🖨️</div>
+            <p>Select a printer on the left to view its status.</p>
+          </div>
+
+          <div id="detail" class="detail hidden">
+            <div class="detail-head">
+              <div>
+                <h2 id="printerName">—</h2>
+                <p id="printerMeta" class="meta">—</p>
+              </div>
+              <span id="stateBadge" class="state">—</span>
+            </div>
+
+            <div class="cards">
+              <div class="card">
+                <h3>Ink levels</h3>
+                <div id="inkLevels" class="ink-grid"></div>
+              </div>
+
+              <div class="card">
+                <h3>Waste ink counters</h3>
+                <div id="wasteCounters" class="waste-list"></div>
+                <button id="resetBtn" class="btn danger">Reset all waste counters</button>
+                <p id="resetMsg" class="reset-msg"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
