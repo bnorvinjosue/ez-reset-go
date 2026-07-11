@@ -45,6 +45,30 @@ cmake --build build --config Release
 El ejecutable `bustamante_print_tools.exe` se enlaza con `setupapi.lib` y usa
 `CreateFileW` / `DeviceIoControl` para hablar con la impresora vía el driver USBPRINT.
 
+### Cross-compile desde Linux (sin Windows)
+
+Es posible generar el `.exe` desde Linux usando `mingw-w64` y Qt6 para Windows:
+
+```bash
+# 1. Dependencias
+sudo apt-get install -y mingw-w64
+pip install aqtinstall
+
+# 2. Descargar Qt6 para Windows (mingw build)
+python3 -m aqt install-qt windows desktop 6.7.0 win64_mingw   # -> ./6.7.0/mingw_64
+
+# 3. Build (usa el script incluido)
+./build-windows.sh
+```
+
+El script `build-windows.sh` configura CMake con el toolchain `toolchain-mingw.cmake`,
+usa las herramientas `moc`/`rcc`/`uic` nativas de Linux y desactiva Vulkan (cuyos
+headers de Linux interfieren con el cross-compile). El resultado se empaqueta en
+`dist-win/` con el ejecutable, `devices.xml`, los plugins de plataforma Qt
+(`platforms/qwindows.dll`) y las DLLs necesarias (`Qt6Core/Gui/Widgets`,
+`libgcc_s_seh-1.dll`, `libstdc++-6.dll`). `SETUPAPI.dll` y `msvcrt.dll` las aporta
+el propio Windows.
+
 ## Estructura
 
 ```

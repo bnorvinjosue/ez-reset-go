@@ -1,5 +1,9 @@
 # C++ build artifacts
 build/
+build-win/
+dist-win/
+6.7.0/
+aqtinstall.log
 *.o
 *.obj
 moc_*.cpp
