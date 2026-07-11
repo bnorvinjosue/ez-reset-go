@@ -44,6 +44,25 @@ The built binary is in `build/bin/ezreset`. On Windows it can talk to real
 Epson printers over USB; on other platforms the GUI and device database work
 but the USB transport is unavailable.
 
+### Building for Windows from Linux/macOS
+
+Cross-compilation is fully supported (no Windows machine needed):
+
+```sh
+# One-shot script:
+./build-windows.sh
+
+# Or manually:
+( cd frontend && npm install && npm run build )
+wails build -platform windows/amd64
+```
+
+This produces `build/bin/ezreset.exe` — a self-contained `PE32+` GUI executable
+that embeds the frontend and `devices.xml`. On the target Windows machine it
+needs the **WebView2 runtime** (preinstalled on Windows 10/11) and the USBPRINT
+driver (provided by the Epson USB driver). No extra files are required next to
+the `.exe`.
+
 ### Running the dev server
 
 ```sh
