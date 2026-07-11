@@ -1055,3 +1055,12 @@ This tool modifies printer firmware counters. Use at your own risk. Always resta
 
 - [Ircama/epson_print_conf](https://github.com/Ircama/epson_print_conf)
 - [abrasive/epson-reversing](https://github.com/abrasive/epson-reversing)
+
+## Other implementations in this repository
+
+This repository also contains ports of the original Python tool:
+
+- **`resetgo/`** — Port to Go with a Wails GUI ("Bustamante Print Tools"). Builds for Linux and Windows. See `resetgo/README.go.md`.
+- **`resetcplusplus/`** — Port to C++ with a Qt6 GUI ("Bustamante Print Tools"). See `resetcplusplus/README.md`.
+
+Both share the same `devices.xml` database and the same D4/USBPRINT protocol logic as the Python original.

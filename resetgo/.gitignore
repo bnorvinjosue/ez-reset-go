@@ -1,0 +1,7 @@
+# Go / Wails frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+*.log

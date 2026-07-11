@@ -1,0 +1,7 @@
+# C++ build artifacts
+build/
+*.o
+*.obj
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
